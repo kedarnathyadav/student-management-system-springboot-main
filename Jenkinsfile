@@ -3,12 +3,12 @@ pipeline {
     stages {
 	 stage('compile and clean') {
             steps {
-		sh "mvn compile"
+		sh "mvn clean compile"
             }
         }
         stage('Deploy') {
             steps {
-                sh "mvn dependency:copy-dependencies"
+                sh "mvn clean install"
             }
 	}
 		stage('Execution') {
